@@ -22,7 +22,7 @@ var PrimeCar = (function () {
 var AppComponent = (function () {
     function AppComponent(carService) {
         this.carService = carService;
-        this.car = new PrimeCar();
+        this.car = new PrimeCar('', '', '', '');
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -30,7 +30,7 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.showDialogToAdd = function () {
         this.newCar = true;
-        this.car = new PrimeCar();
+        this.car = new PrimeCar('', '', '', '');
         this.displayDialog = true;
     };
     AppComponent.prototype.save = function () {
@@ -52,7 +52,7 @@ var AppComponent = (function () {
         this.displayDialog = true;
     };
     AppComponent.prototype.cloneCar = function (c) {
-        var car = new PrimeCar();
+        var car = new PrimeCar('', '', '', '');
         for (var prop in c) {
             car[prop] = c[prop];
         }

@@ -3,7 +3,7 @@ import {Car} from './cars/car';
 import {CarService} from './cars/carservice';
 
 class PrimeCar implements Car {
-  constructor(public vin?, public year?, public brand?, public color?) {}
+  constructor(public vin:any, public year:any, public brand:any, public color:any) {}
 }
 
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent {
 
   displayDialog: boolean;
 
-  car: Car = new PrimeCar();
+  car: Car = new PrimeCar('','','','');
 
   selectedCar: Car;
 
@@ -30,7 +30,7 @@ export class AppComponent {
 
   showDialogToAdd() {
     this.newCar = true;
-    this.car = new PrimeCar();
+    this.car = new PrimeCar('','','','');
     this.displayDialog = true;
   }
 
@@ -50,14 +50,14 @@ export class AppComponent {
     this.displayDialog = false;
   }
 
-  onRowSelect(event) {
+  onRowSelect(event:any) {
     this.newCar = false;
     this.car = this.cloneCar(event.data);
     this.displayDialog = true;
   }
 
   cloneCar(c: Car): Car {
-    let car = new PrimeCar();
+    let car = new PrimeCar('','','','');
     for(let prop in c) {
       car[prop] = c[prop];
     }
