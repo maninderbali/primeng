@@ -1,9 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, EventEmitter} from '@angular/core';
 import {Car} from './cars/car';
 import {CarService} from './cars/carservice';
+import {DataTable} from 'primeng/components/datatable/datatable';
+
 
 class PrimeCar implements Car {
-  constructor(public vin:any, public year:any, public brand:any, public color:any) {}
+  constructor(public vin:any, public year:any, public brand:any, public color:any,private element: ElementRef) {}
 }
 
 @Component({
@@ -66,5 +68,44 @@ export class AppComponent {
 
   findSelectedCarIndex(): number {
     return this.cars.indexOf(this.selectedCar);
+  }
+
+
+
+    onHeaderKeydown(event: KeyboardEvent) {
+    console.log('event is ', event);
+    switch (event.keyCode) {
+      case 38:
+        // top arrow
+        event.preventDefault();
+
+       /* this.values[this.activeSpotIndex].deselect();
+        this.values[this.activeSpotIndex].blur();
+
+        this.activeSpotIndex--;
+        if (this.activeSpotIndex < 0) { this.activeSpotIndex = 0; }
+
+        this.values[this.activeSpotIndex].focus();*/
+
+        break;
+
+      case 40:
+        // down arrow
+        event.preventDefault();
+
+     /*   this.values[this.activeSpotIndex].deselect();
+        this.values[this.activeSpotIndex].blur();
+
+        this.activeSpotIndex++;
+        if (this.activeSpotIndex > (this.values.length - 1)) {
+          this.activeSpotIndex =  (this.values.length - 1);
+        }
+        this.values[this.activeSpotIndex].focus();*/
+
+        break;
+
+      case 13:
+        break;
+    }
   }
 }

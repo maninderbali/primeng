@@ -11,11 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var carservice_1 = require("./cars/carservice");
 var PrimeCar = (function () {
-    function PrimeCar(vin, year, brand, color) {
+    function PrimeCar(vin, year, brand, color, element) {
         this.vin = vin;
         this.year = year;
         this.brand = brand;
         this.color = color;
+        this.element = element;
     }
     return PrimeCar;
 }());
@@ -60,6 +61,36 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.findSelectedCarIndex = function () {
         return this.cars.indexOf(this.selectedCar);
+    };
+    AppComponent.prototype.onHeaderKeydown = function (event) {
+        console.log('event is ', event);
+        switch (event.keyCode) {
+            case 38:
+                // top arrow
+                event.preventDefault();
+                /* this.values[this.activeSpotIndex].deselect();
+                 this.values[this.activeSpotIndex].blur();
+         
+                 this.activeSpotIndex--;
+                 if (this.activeSpotIndex < 0) { this.activeSpotIndex = 0; }
+         
+                 this.values[this.activeSpotIndex].focus();*/
+                break;
+            case 40:
+                // down arrow
+                event.preventDefault();
+                /*   this.values[this.activeSpotIndex].deselect();
+                   this.values[this.activeSpotIndex].blur();
+           
+                   this.activeSpotIndex++;
+                   if (this.activeSpotIndex > (this.values.length - 1)) {
+                     this.activeSpotIndex =  (this.values.length - 1);
+                   }
+                   this.values[this.activeSpotIndex].focus();*/
+                break;
+            case 13:
+                break;
+        }
     };
     return AppComponent;
 }());

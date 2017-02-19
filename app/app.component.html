@@ -1,5 +1,5 @@
 <div>
-    <p-dataTable [value]="cars" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+    <p-dataTable [value]="cars" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)"  (keyDown)="onHeaderKeydown($event)" [paginator]="true" [rows]="10" [responsive]="true">
         <header>CRUD for Cars</header>
         <p-column field="vin" header="Vin" [sortable]="true"></p-column>
         <p-column field="year" header="Year" [sortable]="true"></p-column>
